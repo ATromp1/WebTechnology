@@ -2,97 +2,153 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MyLittlePhoneStore</title>
   <link rel="icon" href="https://img.icons8.com/dusk/2x/cell-phone.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="screen.css">
 </head>
 
 <body>
-  <div class="filters">
-    <h1>Filter</h1>
-    <div class="filter_brand">
-      <h2>Brands</h2>
-      <ul>
-        <li><input type="checkbox">Apple</li>
-        <li><input type="checkbox">Samsung</li>
-        <li><input type="checkbox">OnePlus</li>
-      </ul>
-    </div>
-    <div class="filter_os">
-      <h2>OS</h2>
-      <ul>
-        <li><input type="checkbox">iOS</li>
-        <li><input type="checkbox">Android</li>
-      </ul>
-    </div>
-    <button>Filter</button>
+  <div class="wrapper">
+  <!-- Navigation bar. Supported by Chrome 6.0, IE/Edge 9.0, Firefox 4.0, Safari 5.0 and Opera 11.1.
+  Not supported in Internet Explorer 8 and earlier versions. -->
+  <div id="header">
+    <nav>
+      <a href="/html/">Home</a> |
+      <a href="/phones/">Phones</a> |
+      <a href="/accessories/">Accessories</a> |
+      <a href="/contact/">Contact</a>
+    </nav>
   </div>
 
-  <form action="https://wt.ops.labs.vu.nl/api20/47dc2ad7" method="post">
-    <table>
-      <caption>Top phones</caption>
-      <tr>
-        <th>Image</th>
-        <th>Brand</th>
-        <th>Model</th>
-        <th>OS</th>
-        <th>Screensize</th>
-      </tr>
-      <tr>
-        <td>
-          <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front"
-              style="width:108px;height:168px;">
-            <figcaption>
-              <pre>Iphone X front</pre>
-            </figcaption>
-          </figure>
-        </td>
-        <td>Apple</td>
-        <td>Iphone X</td>
-        <td>iOS</td>
-        <td>5</td>
-      </tr>
-      <tr>
-        <td>
-          <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front"
-              style="width:108px;height:168px;">
-            <figcaption>
-              <pre>Galaxy S10 front</pre>
-            </figcaption>
-          </figure>
-        </td>
-        <td>Samsung</td>
-        <td>Galaxy S10</td>
-        <td>Android</td>
-        <td>6.1</td>
-      </tr>
-      <tr>
-        <td>
-          <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front"
-              style="width:108px;height:168px;">
-            <figcaption>
-              <pre>OnePlus 6 front</pre>
-            </figcaption>
-          </figure>
-        </td>
-        <td>OnePlus</td>
-        <td>6</td>
-        <td>Android</td>
-        <td>6.28</td>
-      </tr>
+  <div id="main_body">
+    <section>
+      <p>Do you want to buy a new phone? At <strong>MyLittlePhoneStore</strong> you can find an extensive selection of phones.</p>
+    </section>
 
-      <tr>
-        <td><input type="text" name="img_url" id="phone_img"></td>
-        <td><input type="text" name="Brand" id="phone_brand"></td>
-        <td><input type="text" name="Model" id="phone_model"></td>
-        <td><input type="text" name="OS" id="phone_os"></td>
-        <td><input type="text" name="Screensize" id="phone_sz"></td>
-      </tr>
+    <!-- Some stupid part about how to find your phone. -->
+    <strong>How to find your phone?</strong>
+    <ol>
+      <li>First select your Brand</li>
+      <li>Then select your prefered OS</li>
+      <li>Then select your price range</li>
+      <li>Finally click on the filter button</li>
+    </ol>
 
-    </table>
-  </form>
+    <!-- Filter section -->
+    <div class="filters">
+      <h1>Filter</h1>
+      <dl>
+        <dt>
+          Brands
+        </dt>
+        <dd><input type="checkbox">Apple</dd>
+        <dd><input type="checkbox">Samsung</dd>
+        <dd><input type="checkbox">OnePlus</dd>
+
+        <dt>
+          OS
+        </dt>
+        <dd><input type="checkbox">iOS</dd>
+        <dd><input type="checkbox">Android</dd>
+
+        <dt>
+          Price Range
+        </dt>
+        <dd>$0<input type="range" min="0" max="1250" id="Price_slider">$1250</dd>
+      </dl>
+
+      <button>Filter</button>
+    </div>
+
+    <!-- Table filled with phones which might once be able to be filtered based on your preferences -->
+    <div id="phone_list">
+      <h2>All available phones</h2>
+
+      <form action="https://wt.ops.labs.vu.nl/api20/47dc2ad7" method="post">
+        <table>
+          <caption>Top phones</caption>
+          <tr>
+            <th>Image</th>
+            <th>Brand</th>
+            <th>Model</th>
+            <th><abbr title="Operating System">OS</abbr></th>
+            <th>Screensize</th>
+          </tr>
+          <!-- Iphone X table entrie -->
+          <tr>
+            <td>
+              <a href="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg">
+                <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front"
+                    style="width:108px;height:168px;">
+                  <figcaption>
+                    <pre>Iphone X front</pre>
+                  </figcaption>
+                </figure>
+              </a>
+            </td>
+            <td>Apple</td>
+            <td>Iphone X</td>
+            <td>iOS</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg">
+                <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front"
+                    style="width:108px;height:168px;">
+                  <figcaption>
+                    <pre>Galaxy S10 front</pre>
+                  </figcaption>
+                </figure>
+              </a>
+            </td>
+            <td>Samsung</td>
+            <td>Galaxy S10</td>
+            <td>Android</td>
+            <td>6.1</td>
+          </tr>
+          <tr>
+            <td>
+              <a href="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg">
+                <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front"
+                    style="width:108px;height:168px;">
+                  <figcaption>
+                    <pre>OnePlus 6 front</pre>
+                  </figcaption>
+                </figure>
+              </a>
+            </td>
+            <td>OnePlus</td>
+            <td>6</td>
+            <td>Android</td>
+            <td>6.28</td>
+          </tr>
+
+          <tr>
+            <td><input type="file" accept="image/*" required name="img_url" id="phone_img"></td>
+            <td><input type="text" name="Brand" required placeholder="Brand" id="phone_brand"></td>
+            <td><input type="text" name="Model" required placeholder="Model" id="phone_model"></td>
+            <td><input type="text" name="OS" required placeholder="OS" id="phone_os"></td>
+            <td><input type="number" name="Screensize" required placeholder="Screensize(Inches)" id="phone_sz"></td>
+          </tr>
+
+        </table>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer with 'useful' links -->
+  <div id="footer">
+    <ul>
+      <li><a href="contact.html"><em>About us</em></a></li>
+      <li><a href="contact.html"><em>Copyright</em></a></li>
+      <li><a href="contact.html"><em>Advertise</em></a></li>
+    </ul>
+  </div>
+</div>
+
 </body>
 
 
