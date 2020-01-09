@@ -5,68 +5,83 @@
   <title>MyLittlePhoneStore</title>
   <link rel="icon" href="https://img.icons8.com/dusk/2x/cell-phone.png" type="image/x-icon">
 
-  <link rel="stylesheet" href="screen.css">
+  <link rel="stylesheet" media="screen" href="screen.css">
+  <link rel="stylesheet" media="print" href="print.css" />
+
+  <!-- <script>
+    setTimeout(function () {
+      window.location.reload(1);
+    }, 3000);
+  </script> -->
 </head>
 
 <body>
+  <div id="header">
+    <section>
+      <p>Do you want to buy a new phone?</p>
+      <p>At <strong>MyLittlePhoneStore</strong> you can find an extensive selection of
+        phones.</p>
+    </section>
+  </div>
+
   <!-- Navigation bar. Supported by Chrome 6.0, IE/Edge 9.0, Firefox 4.0, Safari 5.0 and Opera 11.1.
   Not supported in Internet Explorer 8 and earlier versions. -->
-  <div id="header">
+  <div id="navbar">
     <nav>
-      <a href="/html/">Home</a> |
-      <a href="/phones/">Phones</a> |
-      <a href="/accessories/">Accessories</a> |
-      <a href="/contact/">Contact</a>
+      <a href="/html/" target="_blank">Home</a>
+      <a href="/phones/" target="_blank">Phones</a>
+      <a href="/accessories/" target="_blank">Accessories</a>
+      <a href="/contact/" target="_blank">Contact</a>
     </nav>
   </div>
 
   <div id="main_body">
-    <section>
-      <p>Do you want to buy a new phone? At <strong>MyLittlePhoneStore</strong> you can find an extensive selection of phones.</p>
-    </section>
 
-    <!-- Some stupid part about how to find your phone. -->
-    <strong>How to find your phone?</strong>
-    <ol>
-      <li>First select your Brand</li>
-      <li>Then select your prefered OS</li>
-      <li>Then select your price range</li>
-      <li>Finally click on the filter button</li>
-    </ol>
+    <div id="left_col">
+      <!-- Some stupid part about how to find your phone. -->
+      <div id="intro">
+        <strong>How to find your phone?</strong>
+        <ol>
+          <li>First select your Brand</li>
+          <li>Then select your prefered OS</li>
+          <li>Then select your price range</li>
+          <li>Finally click on the filter button</li>
+        </ol>
+      </div>
 
-    <!-- Filter section -->
-    <div class="filters">
-      <h1>Filter</h1>
-      <dl>
-        <dt>
-          Brands
-        </dt>
-        <dd><input type="checkbox">Apple</dd>
-        <dd><input type="checkbox">Samsung</dd>
-        <dd><input type="checkbox">OnePlus</dd>
+      <!-- Filter section -->
+      <div class="filters">
+        <h1>Filter</h1>
+        <dl>
+          <dt>
+            Brands
+          </dt>
+            <dd><input type="checkbox">Apple</dd>
+            <dd><input type="checkbox">Samsung</dd>
+            <dd><input type="checkbox">OnePlus</dd>
 
-        <dt>
-          OS
-        </dt>
-        <dd><input type="checkbox">iOS</dd>
-        <dd><input type="checkbox">Android</dd>
+          <dt>
+            OS
+          </dt>
+            <dd><input type="checkbox">iOS</dd>
+            <dd><input type="checkbox">Android</dd>
 
-        <dt>
-          Price Range
-        </dt>
-        <dd>$0<input type="range" min="0" max="1250" id="Price_slider">$1250</dd>
-      </dl>
+          <dt>
+            Price Range
+          </dt>
+          <dd>$0<input type="range" min="0" max="1250" id="Price_slider">$1250</dd>
+        </dl>
 
-      <button>Filter</button>
+        <button>Filter</button>
+      </div>
     </div>
 
     <!-- Table filled with phones which might once be able to be filtered based on your preferences -->
     <div id="phone_list">
-      <h2>All available phones</h2>
 
       <form action="https://wt.ops.labs.vu.nl/api20/47dc2ad7" method="post">
-        <table>
-          <caption>Top phones</caption>
+        <table id=table1>
+          <caption><h2>All available phones</h2></caption>
           <tr>
             <th>Image</th>
             <th>Brand</th>
@@ -77,7 +92,7 @@
           <!-- Iphone X table entrie -->
           <tr>
             <td>
-              <a href="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg">
+              <a href="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" target="_blank">
                 <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front"
                     style="width:108px;height:168px;">
                   <figcaption>
@@ -93,7 +108,7 @@
           </tr>
           <tr>
             <td>
-              <a href="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg">
+              <a href="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" target="_blank">
                 <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front"
                     style="width:108px;height:168px;">
                   <figcaption>
@@ -109,7 +124,7 @@
           </tr>
           <tr>
             <td>
-              <a href="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg">
+              <a href="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" target="_blank">
                 <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front"
                     style="width:108px;height:168px;">
                   <figcaption>

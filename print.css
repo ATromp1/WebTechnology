@@ -1,0 +1,11 @@
+#header, #footer, #nav, #navbar {
+    display: none;
+}
+
+@page {
+    margin: 2cm;
+}
+
+img {
+    filter: grayscale(100%);
+}
