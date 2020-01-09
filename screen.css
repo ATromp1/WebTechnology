@@ -1,0 +1,16 @@
+body {
+    background: pink;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+#header {
+    background-color: blue;
+    /* float: left; */
+    margin-top: 5px;
+}
+
+div {
+    float: left;
+    margin: 20px;
+}
