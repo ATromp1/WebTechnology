@@ -9,3 +9,14 @@
 img {
     filter: grayscale(100%);
 }
+
+#footer {
+    page-break-after: always;
+}
+
+/* Not supported by firefox */
+p {
+	page-break-before: always;
+    orphans: 3;
+    widows: 3;
+}

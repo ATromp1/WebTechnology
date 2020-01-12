@@ -8,11 +8,7 @@
   <link rel="stylesheet" media="screen" href="screen.css">
   <link rel="stylesheet" media="print" href="print.css" />
 
-  <!-- <script>
-    setTimeout(function () {
-      window.location.reload(1);
-    }, 3000);
-  </script> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -24,21 +20,20 @@
     </section>
   </div>
 
-  <!-- Navigation bar. Supported by Chrome 6.0, IE/Edge 9.0, Firefox 4.0, Safari 5.0 and Opera 11.1.
-  Not supported in Internet Explorer 8 and earlier versions. -->
+  <!-- Navigation bar. -->
   <div id="navbar">
-    <nav>
-      <a href="/html/" target="_blank">Home</a>
-      <a href="/phones/" target="_blank">Phones</a>
-      <a href="/accessories/" target="_blank">Accessories</a>
-      <a href="/contact/" target="_blank">Contact</a>
-    </nav>
+    <ul>
+      <li><a href="/html/" target="_blank">Home</a></li>
+      <li><a href="/phones/" target="_blank">Phones</a></li>
+      <li><a href="/accessories/" target="_blank">Accessories</a></li>
+      <li><a href="/contact/" target="_blank">Contact</a></li>
+    </ul>
   </div>
 
   <div id="main_body">
 
     <div id="left_col">
-      <!-- Some stupid part about how to find your phone. -->
+      <!-- part about how to find your phone. -->
       <div id="intro">
         <strong>How to find your phone?</strong>
         <ol>
@@ -51,28 +46,35 @@
 
       <!-- Filter section -->
       <div class="filters">
-        <h1>Filter</h1>
+        <h1>Telephones</h1>
         <dl>
           <dt>
-            Brands
+            Available Brands
           </dt>
-            <dd><input type="checkbox">Apple</dd>
-            <dd><input type="checkbox">Samsung</dd>
-            <dd><input type="checkbox">OnePlus</dd>
+            <dd>Apple</dd>
+            <dd>Samsung</dd>
+            <dd>OnePlus</dd>
 
           <dt>
-            OS
+            Operating Systems
           </dt>
-            <dd><input type="checkbox">iOS</dd>
-            <dd><input type="checkbox">Android</dd>
+            <dd>OS</dd>
+            <dd>Android</dd>
 
           <dt>
             Price Range
           </dt>
-          <dd>$0<input type="range" min="0" max="1250" id="Price_slider">$1250</dd>
+          <dd>$0 to $1250</dd>
         </dl>
+      </div>
 
-        <button>Filter</button>
+      <div id="information">
+        <h2>Information</h2>
+        <ul>
+          <li>An operating system is the program that controls the hardware of your phone.</li>
+          <li>There are different operating systems for telephones. 
+            The most famous operating systems for smartphones are Android and iOS.</li>
+        </ul>
       </div>
     </div>
 
@@ -93,8 +95,7 @@
           <tr>
             <td>
               <a href="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" target="_blank">
-                <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front"
-                    style="width:108px;height:168px;">
+                <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front">
                   <figcaption>
                     <pre>Iphone X front</pre>
                   </figcaption>
@@ -109,8 +110,7 @@
           <tr>
             <td>
               <a href="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" target="_blank">
-                <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front"
-                    style="width:108px;height:168px;">
+                <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front">
                   <figcaption>
                     <pre>Galaxy S10 front</pre>
                   </figcaption>
@@ -125,8 +125,7 @@
           <tr>
             <td>
               <a href="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" target="_blank">
-                <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front"
-                    style="width:108px;height:168px;">
+                <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front">
                   <figcaption>
                     <pre>OnePlus 6 front</pre>
                   </figcaption>
@@ -155,16 +154,21 @@
 
   <!-- Footer with 'useful' links -->
   <div id="footer">
-    <ul>
-      <li><a href="contact.html"><em>About us</em></a></li>
-      <li><a href="contact.html"><em>Copyright</em></a></li>
-      <li><a href="contact.html"><em>Advertise</em></a></li>
-    </ul>
+    <nav>
+      <a href="contact.html"><em>About us</em></a>
+      <a href="contact.html"><em>Copyright</em></a>
+      <a href="contact.html"><em>Advertise</em></a>
+    </nav>
   </div>
 
-
 </body>
-
-
-
 </html>
+
+<!-- Browser Compatibility Report:
+ Google Chrome has been used as the primary testing browser: No abnormalities have been found.
+ Firefox has been tested and there seems to be no visual difference between firefox and chrome.
+
+ Print style has been tested by using the print-preview in Chrome.
+ Different screen sizes have been tested by scaling down the Chrome browser.  
+ Navigation Bar: Supported by Chrome 6.0, IE/Edge 9.0, Firefox 4.0, Safari 5.0 and Opera 11.1.
+   Not supported in Internet Explorer 8 and earlier versions. -->
