@@ -84,6 +84,7 @@ a:active {
 
 #table1 {
     border-collapse: collapse;
+    align-self: stretch;
 }
 
 tr:nth-child(even) {
