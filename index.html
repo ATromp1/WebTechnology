@@ -7,6 +7,8 @@
 
   <link rel="stylesheet" media="screen" href="screen.css">
   <link rel="stylesheet" media="print" href="print.css" />
+  <script type="text/javascript" src="script.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -81,15 +83,15 @@
     <!-- Table filled with phones which might once be able to be filtered based on your preferences -->
     <div id="phone_list">
 
-      <form action="https://wt.ops.labs.vu.nl/api20/47dc2ad7" method="post">
+      <form id="phone_form" action="https://wt.ops.labs.vu.nl/api20/47dc2ad7" method="post" target="_self">
         <table id=table1>
           <caption><h2>All available phones</h2></caption>
           <tr>
             <th class="row_image">Image</th>
-            <th class="row_brand">Brand</th>
-            <th class="row_model">Model</th>
-            <th class="row_os"><abbr title="Operating System">OS</abbr></th>
-            <th class="row_screensize">Screensize</th>
+            <th class="row_brand" onclick="sortTable(1)">Brand</th>
+            <th class="row_model" onclick="sortTable(2)">Model</th>
+            <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">OS</abbr></th>
+            <th class="row_screensize" onclick="sortTable(4)">Screensize</th>
           </tr>
           <!-- Iphone X table entrie -->
           <tr>
@@ -139,15 +141,16 @@
           </tr>
 
           <tr>
-            <td><input type="file" accept="image/*" required name="img_url" id="phone_img"></td>
-            <td><input type="text" name="Brand" required placeholder="Brand" id="phone_brand"></td>
+            <td><input type="url" accept="image/*" required name="img_url" id="phone_img"></td>
+            <td><input type="text" name="Brand" required name="Brand" placeholder="Brand" id="phone_brand"></td>
             <td><input type="text" name="Model" required placeholder="Model" id="phone_model"></td>
             <td><input type="text" name="OS" required placeholder="OS" id="phone_os"></td>
             <td><input type="number" name="Screensize" required placeholder="Screensize(Inches)" id="phone_sz"></td>
           </tr>
 
         </table>
-        <button type="submit">Submit</button>
+        <button id="submit" type="submit">Submit</button>
+        <button>Reset</button>
       </form>
     </div>
   </div>
