@@ -63,22 +63,20 @@ function sortTable(n) {
 }
 
 
-window.onload = function() {
 
-    document.getElementById("submit").onclick = function() {
-        var formData = JSON.stringify(document.getElementById("phone_form"))
-        console.log(formData);
-    }
-
-}
 
 // Reset button
 $(document).ready(function(){
-  $("reset").click(function(){
+  $('#reset_id').click(function(){
     $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
   });
 });
 
+// $('#reset_id').click(function(){
+//     $.ajax({url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset", success: function(result){
+//       $("#div1").html(result);
+//     }});
+//   });
 
 
 // https://www.hollandsnieuwe.nl/assets/img/phones/samsung_galaxy_a50_blauw/samsung_galaxy_a50_blauw_front_medium.png
