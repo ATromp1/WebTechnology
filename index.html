@@ -53,15 +53,15 @@
           <dt>
             Available Brands
           </dt>
-            <dd>Apple</dd>
-            <dd>Samsung</dd>
-            <dd>OnePlus</dd>
+          <dd>Apple</dd>
+          <dd>Samsung</dd>
+          <dd>OnePlus</dd>
 
           <dt>
             Operating Systems
           </dt>
-            <dd>OS</dd>
-            <dd>Android</dd>
+          <dd>OS</dd>
+          <dd>Android</dd>
 
           <dt>
             Price Range
@@ -74,7 +74,7 @@
         <h2>Information</h2>
         <ul>
           <li>An operating system is the program that controls the hardware of your phone.</li>
-          <li>There are different operating systems for telephones. 
+          <li>There are different operating systems for telephones.
             The most famous operating systems for smartphones are Android and iOS.</li>
         </ul>
       </div>
@@ -85,21 +85,25 @@
 
       <form id="phone_form">
         <table id=table1>
-          <caption><h2>All available phones</h2></caption>
-          <tr>
-            <th class="row_image">image</th>
-            <th class="row_brand" onclick="sortTable(1)">brand</th>
-            <th class="row_model" onclick="sortTable(2)">model</th>
-            <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">os</abbr></th>
-            <th class="row_screensize" onclick="sortTable(4)">screensize</th>
-          </tr>
+          <caption>
+            <h2>All available phones</h2>
+          </caption>
+          <thead>
+            <tr>
+              <th class="row_image">image</th>
+              <th class="row_brand" onclick="sortTable(1)">brand</th>
+              <th class="row_model" onclick="sortTable(2)">model</th>
+              <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">os</abbr></th>
+              <th class="row_screensize" onclick="sortTable(4)">screensize</th>
+            </tr>
+          </thead>
 
           <tr>
-            <td><input type="url"     name="image"                                        id="phone_img"></td>
-            <td><input type="text"    name="brand"      placeholder="Brand"               id="phone_brand"></td>
-            <td><input type="text"    name="model"      placeholder="Model"               id="phone_model"></td>
-            <td><input type="text"    name="os"         placeholder="OS"                  id="phone_os"></td>
-            <td><input type="number"  name="screensize" placeholder="Screensize(Inches)"  id="phone_sz"></td>
+            <td><input type="url" name="image" id="phone_img"></td>
+            <td><input type="text" name="brand" placeholder="Brand" id="phone_brand"></td>
+            <td><input type="text" name="model" placeholder="Model" id="phone_model"></td>
+            <td><input type="text" name="os" placeholder="OS" id="phone_os"></td>
+            <td><input type="number" name="screensize" placeholder="Screensize(Inches)" id="phone_sz"></td>
           </tr>
 
         </table>
@@ -119,6 +123,7 @@
   </div>
 
 </body>
+
 </html>
 
 <!-- Browser Compatibility Report:

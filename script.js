@@ -113,7 +113,7 @@ $(document).ready(function () {
                     const element = data[i];
                     console.log(element);
 
-                    $("#table1 tbody").append("<tr>"
+                    $("#table1 thead").append("<tr>"
                         + "<td>" + "<img src=" + element.image + "></td>"
                         + "<td>" + element.brand + "</td>"
                         + "<td>" + element.model + "</td>"
