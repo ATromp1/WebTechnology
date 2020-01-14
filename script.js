@@ -63,8 +63,7 @@ function sortTable(n) {
 }
 
 
-window.onload = function() {
-
+document.onload = function() {
     document.getElementById("submit").onclick = function() {
         var formElements = document.getElementById("phone_form").elements;
         let entry = {};
@@ -90,5 +89,64 @@ window.onload = function() {
 }
 
 
+// Reset button
+$(document).ready(function () {
+    $('#reset_id').click(function () {
+        $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
+    });
+});
+
+// $('#reset_id').click(function(){
+//     $.ajax({url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset", success: function(result){
+//       $("#div1").html(result);
+//     }});
+//   });
+
 
 // https://www.hollandsnieuwe.nl/assets/img/phones/samsung_galaxy_a50_blauw/samsung_galaxy_a50_blauw_front_medium.png
+
+
+$(document).ready(function () {
+    jQuery.support.cors = true;
+
+    $.ajax(
+        {
+            type: "GET",
+            url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
+            data: "{}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                console.log(data);
+                for (let i = 0; i < data.length; i++) {
+                    const element = data[i];
+                    console.log(element);
+
+                    $("#table1 tbody").append("<tr>"
+                        + "<td>" + "<img src=" + element.image + "></td>"
+                        + "<td>" + element.brand + "</td>"
+                        + "<td>" + element.model + "</td>"
+                        + "<td>" + element.os + "</td>"
+                        + "<td>" + element.screensize + "</td>"
+                        + "</tr>")
+                }
+
+                //   $.each(data, function() {
+                //       console.log()
+                //       $("#table1 tbody").append("<tr>"+
+                //                      +"<td>"+data.brand+"</td>"
+                //                      +"<td>"+data.model+"</td>"
+                //                      +"<td>"+data.os+"</td>"
+                //                      +"<td>"+data.image+"</td>"
+                //                      +"<td>"+data.screensize+"</td>"
+                //                      +"</tr>" )
+
+                // })
+            },
+            error: function (msg) {
+
+                alert(msg.responseText);
+            }
+        });
+});

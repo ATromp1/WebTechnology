@@ -7,8 +7,8 @@
 
   <link rel="stylesheet" media="screen" href="screen.css">
   <link rel="stylesheet" media="print" href="print.css" />
-  <script type="text/javascript" src="script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="script.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -87,57 +87,11 @@
         <table id=table1>
           <caption><h2>All available phones</h2></caption>
           <tr>
-            <th class="row_image">Image</th>
-            <th class="row_brand" onclick="sortTable(1)">Brand</th>
-            <th class="row_model" onclick="sortTable(2)">Model</th>
-            <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">OS</abbr></th>
-            <th class="row_screensize" onclick="sortTable(4)">Screensize</th>
-          </tr>
-          <!-- Iphone X table entrie -->
-          <tr>
-            <td>
-              <a href="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" target="_blank">
-                <figure><img src="https://bsimg.nl/images/2/base_apple-iphone-x_2.jpg" alt="IphoneX_Front">
-                  <figcaption>
-                    <pre>Iphone X front</pre>
-                  </figcaption>
-                </figure>
-              </a>
-            </td>
-            <td>Apple</td>
-            <td>Iphone X</td>
-            <td>iOS</td>
-            <td>5</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" target="_blank">
-                <figure><img src="https://bsimg.nl/images/2/base_samsung-galaxy-s10_8.jpg" alt="SamsungS10_Front">
-                  <figcaption>
-                    <pre>Galaxy S10 front</pre>
-                  </figcaption>
-                </figure>
-              </a>
-            </td>
-            <td>Samsung</td>
-            <td>Galaxy S10</td>
-            <td>Android</td>
-            <td>6.1</td>
-          </tr>
-          <tr>
-            <td>
-              <a href="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" target="_blank">
-                <figure><img src="https://static.bigspark.com/shrine/2320/original-40a240eea0.jpg" alt="Oneplus6_Front">
-                  <figcaption>
-                    <pre>OnePlus 6 front</pre>
-                  </figcaption>
-                </figure>
-              </a>
-            </td>
-            <td>OnePlus</td>
-            <td>6</td>
-            <td>Android</td>
-            <td>6.28</td>
+            <th class="row_image">image</th>
+            <th class="row_brand" onclick="sortTable(1)">brand</th>
+            <th class="row_model" onclick="sortTable(2)">model</th>
+            <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">os</abbr></th>
+            <th class="row_screensize" onclick="sortTable(4)">screensize</th>
           </tr>
 
           <tr>
@@ -152,6 +106,7 @@
         <button type="button" id="submit">Test</button>
         <button type="reset">Reset</button>
       </form>
+      <button id="reset_id">Reset</button>
     </div>
   </div>
 
