@@ -66,18 +66,28 @@ function sortTable(n) {
 window.onload = function() {
 
     document.getElementById("submit").onclick = function() {
-        var formData = JSON.stringify(document.getElementById("phone_form"))
-        console.log(formData);
+        var formElements = document.getElementById("phone_form").elements;
+        let entry = {};
+
+        // Format data into an array
+        for (let i = 0; i < formElements.length; i++) {
+            const element = formElements[i];
+
+            if (element.nodeName === "INPUT") {
+                entry[element.name] = element.value;
+            }
+            
+        }
+        console.log(JSON.stringify(entry));
+
+        // Send input to database
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(entry)); 
     }
 
 }
-
-// Reset button
-$(document).ready(function(){
-  $("reset").click(function(){
-    $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
-  });
-});
 
 
 
