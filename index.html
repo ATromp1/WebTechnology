@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" media="screen" href="screen.css">
   <link rel="stylesheet" media="print" href="print.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="script.js"></script>
 
@@ -40,7 +41,7 @@
         <strong>How to find your phone?</strong>
         <ol>
           <li>First select your Brand</li>
-          <li>Then select your prefered OS</li>
+          <li>Then select your preferred OS</li>
           <li>Then select your price range</li>
           <li>Finally click on the filter button</li>
         </ol>
@@ -91,10 +92,10 @@
           <thead>
             <tr>
               <th class="row_image">image</th>
-              <th class="row_brand" onclick="sortTable(1)">brand</th>
-              <th class="row_model" onclick="sortTable(2)">model</th>
-              <th class="row_os"><abbr title="Operating System" onclick="sortTable(3)">os</abbr></th>
-              <th class="row_screensize" onclick="sortTable(4)">screensize</th>
+              <th class="sortable">brand</th>
+              <th class="sortable">model</th>
+              <th class="sortable"><abbr title="Operating System">os</abbr></th>
+              <th class="sortable">screensize</th>
             </tr>
           </thead>
 

@@ -177,6 +177,7 @@ caption {
     text-align: left;
 }
 
+
 th,
 td {
     padding: 15px;
@@ -212,6 +213,30 @@ tr:nth-child(odd) td {
     border-width: 2px;
     border-style: dashed;
     border-color: rgba(0, 0, 0, 0.1);
+}
+
+
+th.sortable::after {
+    font-family: "FontAwesome";
+    content: "\f0dc";
+    font-weight: initial;
+    position: absolute;
+    right: 8px;
+    color: rgb(190, 190, 190)
+}
+
+th.sortable.asc::after {
+    content: "\f0d8";
+    /* content: "\F077"; */
+}
+
+th.sortable.desc::after {
+    content: "\f0d7";
+    /* content: "\F078"; */
+}
+
+th.sortable:hover::after {
+    color: white;
 }
 
 /****************************************************************************

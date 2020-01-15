@@ -1,24 +1,19 @@
 // Source: https://codepen.io/andrese52/pen/ZJENqp
-function sortTable(n) {
-    var table,
-        rows,
-        switching,
-        i,
+function sortTable(n, dir) {
+    var i,
         x,
         y,
-        shouldSwitch,
-        dir,
-        switchcount = 0;
-    table = document.getElementById("table1");
-    switching = true;
-    //Set the sorting direction to ascending:
-    dir = "asc";
+        shouldSwitch;
+
+    let table = document.getElementById("table1");
+    let rows = table.getElementsByTagName("TR");
+    let switching = true;
+
     /*Make a loop that will continue until
     no switching has been done:*/
     while (switching) {
         //start by saying: no switching is done:
         switching = false;
-        rows = table.getElementsByTagName("TR");
         /*Loop through all table rows (except the
         first, which contains table headers):*/
         for (i = 1; i < rows.length - 2; i++) { //Change i=0 if you have the header th a separate table.
@@ -49,15 +44,6 @@ function sortTable(n) {
             and mark that a switch has been done:*/
             rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
             switching = true;
-            //Each time a switch is done, increase this count by 1:
-            switchcount++;
-        } else {
-            /*If no switching has been done AND the direction is "asc",
-            set the direction to "desc" and run the while loop again.*/
-            if (switchcount == 0 && dir == "asc") {
-                dir = "desc";
-                switching = true;
-            }
         }
     }
 }
@@ -96,6 +82,24 @@ $(document).ready(function () {
     // Reset button
     $('#reset_id').click(function () {
         $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
+    });
+
+    // Sort table column and update icons on header click
+    $('.sortable').on('click', function() {
+        let th = $(this);
+        let isAsc = th.hasClass('asc');
+        
+        $('.sortable').removeClass("asc").removeClass("desc");
+        
+        if (isAsc) {
+            th.addClass('desc');
+            sortTable(th.index(), 'desc');
+        }
+        else {
+            th.addClass('asc');
+            sortTable(th.index(), 'asc');
+        }
+
     });
     
     // Load table from database
