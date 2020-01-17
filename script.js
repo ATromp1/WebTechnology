@@ -49,6 +49,33 @@ function sortTable(n, dir) {
     }
 }
 
+// Get function that populates the table 
+function populateTable() {
+    $.ajax(
+        {
+            type: "GET",
+            url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
+            data: "{}",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            cache: false,
+            success: function (data) {
+                for (let i = data.length-1; i < data.length; i++) {
+                    const element = data[i];
+                    $("#table1 thead").append("<tr>"
+                        + "<td>" + "<img src=" + element.image + "></td>"
+                        + "<td>" + element.brand + "</td>"
+                        + "<td>" + element.model + "</td>"
+                        + "<td>" + element.os + "</td>"
+                        + "<td>" + element.screensize + "</td>"
+                        + "</tr>")
+                }
+            },
+            error: function (msg) {
+                alert(msg.responseText);
+            }
+        });
+    };
 
 $(document).ready(function () {
     jQuery.support.cors = true;
@@ -75,14 +102,14 @@ $(document).ready(function () {
             xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
             xhr.setRequestHeader("Content-Type", "application/json")
             xhr.send(JSON.stringify(entry)); 
-            $("#phone_form")[0].reset();
+            populateTable();
         }
-    
     }
     
     // Reset button
     $('#reset_id').click(function () {
         $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
+        $("#table1 thead").find("tr:gt(2)").remove();           // Deleting all entries except the first 2
     });
 
     // Sort table column and update icons on header click
@@ -103,7 +130,7 @@ $(document).ready(function () {
 
     });
     
-    // Load table from database
+    // Populating the initial table from the API
     $.ajax(
         {
             type: "GET",
@@ -130,3 +157,4 @@ $(document).ready(function () {
             }
         });
 });
+
