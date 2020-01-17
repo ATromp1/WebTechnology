@@ -1,3 +1,4 @@
+// Function that sorts the table by descending or ascending order.
 // Source: https://codepen.io/andrese52/pen/ZJENqp
 function sortTable(n, dir) {
     var i,
@@ -112,11 +113,8 @@ $(document).ready(function () {
             dataType: "json",
             cache: false,
             success: function (data) {
-                console.log(data);
                 for (let i = 0; i < data.length; i++) {
                     const element = data[i];
-                    console.log(element);
-
                     $("#table1 thead").append("<tr>"
                         + "<td>" + "<img src=" + element.image + "></td>"
                         + "<td>" + element.brand + "</td>"
@@ -131,4 +129,28 @@ $(document).ready(function () {
                 alert(msg.responseText);
             }
         });
+
+
+    // // this is the id of the form
+    // $("#phone_form").submit(function() {
+
+    //     e.preventDefault(); // avoid to execute the actual submit of the form.
+
+    //     var form = $(this);
+    //     var url = form.attr('action');
+
+    //     $.ajax({
+    //         type: "POST",
+    //         dataType: "json",
+    //         url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
+    //         data: form.serialize(), // serializes the form's elements.
+    //         success: function(data)
+    //         {
+    //             alert(data); // show response from the php script.
+    //         }
+    //         });
+
+
+    // });
+
 });
