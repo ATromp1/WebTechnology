@@ -80,6 +80,30 @@ function populateTable() {
 $(document).ready(function () {
     jQuery.support.cors = true;
 
+    $('#phone_form').validate({  
+        rules: {
+            image: {
+                required: true,
+                url2: true
+            },
+            brand: {
+                required: true
+            },
+            model: {
+                required: true
+            },
+            os: {
+                required: true
+            },
+            screensize: {
+                required: true
+            }
+        },
+        messages: {
+            brand: "Please specify a brand name"
+        }
+    });
+
     window.onload = function() {
         // Submit form data to database
         document.getElementById("submit").onclick = function() {
@@ -102,6 +126,7 @@ $(document).ready(function () {
             xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
             xhr.setRequestHeader("Content-Type", "application/json")
             xhr.send(JSON.stringify(entry)); 
+            $("#phone_form")[0].reset();        // Clearing form entries
             populateTable();
         }
     }
