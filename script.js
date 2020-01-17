@@ -50,35 +50,35 @@ function sortTable(n, dir) {
 }
 
 
-window.onload = function() {
-    // Submit form data to database
-    document.getElementById("submit").onclick = function() {
-        var formElements = document.getElementById("phone_form").elements;
-        let entry = {};
-
-        // Format data into an array
-        for (let i = 0; i < formElements.length; i++) {
-            const element = formElements[i];
-
-            if (element.nodeName === "INPUT") {
-                entry[element.name] = element.value;
-            }
-            
-        }
-        console.log(JSON.stringify(entry));
-
-        // Send input to database
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
-        xhr.setRequestHeader("Content-Type", "application/json")
-        xhr.send(JSON.stringify(entry)); 
-    }
-
-}
-
-
 $(document).ready(function () {
     jQuery.support.cors = true;
+
+    window.onload = function() {
+        // Submit form data to database
+        document.getElementById("submit").onclick = function() {
+            var formElements = document.getElementById("phone_form").elements;
+            let entry = {};
+    
+            // Format data into an array
+            for (let i = 0; i < formElements.length; i++) {
+                const element = formElements[i];
+    
+                if (element.nodeName === "INPUT") {
+                    entry[element.name] = element.value;
+                }
+                
+            }
+            console.log(JSON.stringify(entry));
+    
+            // Send input to database
+            var xhr = new XMLHttpRequest();
+            xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
+            xhr.setRequestHeader("Content-Type", "application/json")
+            xhr.send(JSON.stringify(entry)); 
+            $("#phone_form")[0].reset();
+        }
+    
+    }
     
     // Reset button
     $('#reset_id').click(function () {
@@ -129,28 +129,4 @@ $(document).ready(function () {
                 alert(msg.responseText);
             }
         });
-
-
-    // // this is the id of the form
-    // $("#phone_form").submit(function() {
-
-    //     e.preventDefault(); // avoid to execute the actual submit of the form.
-
-    //     var form = $(this);
-    //     var url = form.attr('action');
-
-    //     $.ajax({
-    //         type: "POST",
-    //         dataType: "json",
-    //         url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
-    //         data: form.serialize(), // serializes the form's elements.
-    //         success: function(data)
-    //         {
-    //             alert(data); // show response from the php script.
-    //         }
-    //         });
-
-
-    // });
-
 });
