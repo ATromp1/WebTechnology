@@ -50,7 +50,7 @@ function sortTable(n, dir) {
 }
 
 
-document.onload = function() {
+window.onload = function() {
     // Submit form data to database
     document.getElementById("submit").onclick = function() {
         var formElements = document.getElementById("phone_form").elements;
