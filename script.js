@@ -2,13 +2,10 @@ function sortTableNoArgs() {
     let asc = $('.asc');
     let desc = $('.desc');
 
-    console.log("sortable no args");
     if (asc[0]) {
-        console.log("asc " + asc[0].cellIndex);
         sortTable(asc[0].cellIndex, 'asc');
     }
     if (desc[0]) {
-        console.log("desc " + desc[0].cellIndex);
         sortTable(desc[0].cellIndex, 'desc');
     }
 }
