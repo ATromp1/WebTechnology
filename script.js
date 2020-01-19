@@ -80,62 +80,37 @@ function populateTable() {
 $(document).ready(function () {
     jQuery.support.cors = true;
 
-    $('#phone_form').validate({  
-        rules: {
-            image: {
-                required: true,
-                url2: true
-            },
-            brand: {
-                required: true
-            },
-            model: {
-                required: true
-            },
-            os: {
-                required: true
-            },
-            screensize: {
-                required: true
-            }
-        },
-        messages: {
-            brand: "Please specify a brand name"
-        }
-    });
+    // Submit form data to database
+    $('#phone_form').submit(function(event) {
+        var formElements = document.getElementById("phone_form").elements;
+        let entry = {};
+        
+        event.preventDefault();
 
-    window.onload = function() {
-        // Submit form data to database
-        document.getElementById("submit").onclick = function() {
-            var formElements = document.getElementById("phone_form").elements;
-            let entry = {};
-    
-            // Format data into an array
-            for (let i = 0; i < formElements.length; i++) {
-                const element = formElements[i];
-    
-                if (element.nodeName === "INPUT") {
-                    entry[element.name] = element.value;
-                }
-                
-            }
-            console.log(JSON.stringify(entry));
-    
-            // Send input to database
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
-            xhr.setRequestHeader("Content-Type", "application/json")
-            xhr.send(JSON.stringify(entry)); 
-            $("#phone_form")[0].reset();        // Clearing form entries
-            populateTable();
+        // Format data into an array
+        for (let i = 0; i < formElements.length; i++) {
+            const element = formElements[i];
+
+            if (element.nodeName === "INPUT") {
+                entry[element.name] = element.value;
+            } 
         }
-    }
+        console.log(JSON.stringify(entry));
+
+        // Send input to database
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
+        xhr.setRequestHeader("Content-Type", "application/json")
+        xhr.send(JSON.stringify(entry)); 
+        $("#phone_form")[0].reset();        // Clearing form entries
+        populateTable();
+    })
     
     // Reset button
     $('#reset_id').click(function () {
         $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
         $("#table1 thead").find("tr:gt(2)").remove();           // Deleting all entries except the first 2
-    });
+    })
 
     // Sort table column and update icons on header click
     $('.sortable').on('click', function() {
@@ -152,8 +127,7 @@ $(document).ready(function () {
             th.addClass('asc');
             sortTable(th.index(), 'asc');
         }
-
-    });
+    })
     
     // Populating the initial table from the API
     $.ajax(

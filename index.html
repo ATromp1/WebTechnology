@@ -9,8 +9,6 @@
   <link rel="stylesheet" media="print" href="print.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.js"></script>
-  <script src="http://ajax.microsoft.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
   <script type="text/javascript" src="script.js"></script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -102,15 +100,15 @@
           </thead>
           <tbody>
           <tr>
-            <td><input type="url" name="image" placeholder="Image Link" id="phone_img"></td>
-            <td><input type="text" name="brand" placeholder="Brand" id="phone_brand"></td>
-            <td><input type="text" name="model" placeholder="Model" id="phone_model"></td>
-            <td><input type="text" name="os" placeholder="OS" id="phone_os"></td>
-            <td><input type="number" name="screensize" placeholder="Screensize(Inches)" id="phone_sz"></td>
+            <td><input type="url" name="image" placeholder="Image Link" id="phone_img" required></td>
+            <td><input type="text" name="brand" placeholder="Brand" id="phone_brand" required></td>
+            <td><input type="text" name="model" placeholder="Model" id="phone_model" required></td>
+            <td><input type="text" name="os" placeholder="OS" id="phone_os" required></td>
+            <td><input type="number" name="screensize" placeholder="Screensize(Inches)" id="phone_sz" required></td>
           </tr>
         </tbody>
         </table>
-        <button type="button" id="submit">Submit</button>
+        <button type="submit" id="submit">Submit</button>
         <button type="reset" id="reset_id">Reset</button>
       </form>
     </div>
