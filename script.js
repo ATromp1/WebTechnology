@@ -89,6 +89,7 @@ function populateTable() {
                 for (let i = 0; i < data.length; i++) {
                     appendPhone(data[i]);
                 }
+                sortTableNoArgs();
             },
             error: function (msg) {
 
@@ -151,7 +152,10 @@ $(document).ready(function () {
     // Reset button
     $('#reset_id').click(function () {
         $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
-        $("#table1 thead").find("tr:gt(2)").remove();           // Deleting all entries except the first 2
+
+        $("#table1 thead").find('tr:gt(0)').remove();
+
+        populateTable();
     })
 
     // Sort table column and update icons on header click
