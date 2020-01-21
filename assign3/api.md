@@ -44,3 +44,25 @@ Creates resources
 ```
 
 ---
+
+## PUT http://localhost:3000/products/?id
+
+    http://localhost:3000/users/?id
+Changes and/or replaces resources or collections
+
+#### params
+#
+id
+
+---
+
+## DEL http://localhost:3000/products/?id
+
+    http://localhost:3000/
+Deletes resources
+
+#### params
+#
+id
+
+----
