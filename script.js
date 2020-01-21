@@ -77,7 +77,7 @@ function populateTable() {
     $.ajax(
         {
             type: "GET",
-            url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
+            url: "https://localhost:3000/products",
             data: "{}",
             contentType: "application/json; charset=utf-8",
             dataType: "json",

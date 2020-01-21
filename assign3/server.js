@@ -57,8 +57,13 @@ app.get('/products', function(req, res) {
 });
 
 
+var bodyParser = require("body-parser");
+
+app.use(bodyParser.json());
+
 app.post('/products', function(req, res) {
-	console.log(request.body);
+	console.log(req.body);
+	res.sendStatus(201);
 	return res.json(req.body)
 });
 
