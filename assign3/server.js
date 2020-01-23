@@ -44,8 +44,14 @@ var app = express();
 // ###############################################################################
 
 
+
+app.all("*", function(req, res, next) {
+	// Add Access-Control-Allow-Origin * to each header to allow cross domain requests
+	res.header("Access-Control-Allow-Origin", "*");
+	next();
+});
+
 app.get('/products', function(req, res) {
-	console.log("get request");
     // Example SQL statement to select the name of all products from a specific brand
     db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
 	
@@ -55,6 +61,17 @@ app.get('/products', function(req, res) {
 		// # Return db response as JSON	
     	return res.json(rows)
     });
+});
+
+app.delete('/products', function(req, res) {
+	console.log(req.query.id);
+	db.run("DELETE FROM phones WHERE id=?" + req.query.id, function(err) {
+		if(err) {
+			return res.send(err.message).sendStatus(418);
+
+		}
+		return res.sendStatus(200);
+	});
 });
 
 
@@ -68,9 +85,6 @@ app.post('/products', function(req, res) {
 	return res.json(req.body)
 });
 
-app.all('*', function() {
-	res.header("Access-Control-Allow-Origin", "*");
-})
 
 // ###############################################################################
 // This should start the server, after the routes have been defined, at port 3000:
