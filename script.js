@@ -87,7 +87,7 @@ function addLastPhone() {
     $.ajax(
         {
             type: "GET",
-            url: "https://wt.ops.labs.vu.nl/api20/47dc2ad7",
+            url: "http://localhost:3000/products",
             data: "{}",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -126,7 +126,7 @@ $(document).ready(function () {
 
         // Send input to database
         var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'https://wt.ops.labs.vu.nl/api20/47dc2ad7', true);
+        xhr.open('POST', 'http://localhost:3000/products', true);
         xhr.setRequestHeader("Content-Type", "application/json")
         xhr.send(JSON.stringify(entry));
         $("#phone_form")[0].reset();        // Clearing form entries
@@ -135,7 +135,7 @@ $(document).ready(function () {
 
     // Reset button
     $('#reset_id').click(function () {
-        $.get("https://wt.ops.labs.vu.nl/api20/47dc2ad7/reset")
+        $.get("http://localhost:3000/products")
 
         $("#table1 thead").find('tr:gt(0)').remove();
 
