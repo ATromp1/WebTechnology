@@ -48,12 +48,14 @@ var app = express();
 app.all("*", function(req, res, next) {
 	// Add Access-Control-Allow-Origin * to each header to allow cross domain requests
 	res.header("Access-Control-Allow-Origin", "*");
+	res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With,    Content-Type, Accept");
 	next();
 });
 
 app.get('/products', function(req, res) {
-    // Example SQL statement to select the name of all products from a specific brand
-    db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
+	// Example SQL statement to select the name of all products from a specific brand
+	db.all("SELECT id, brand, model, os, image, screensize FROM phones", function(err, rows) {
 	
     	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
     	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
@@ -64,11 +66,10 @@ app.get('/products', function(req, res) {
 });
 
 app.delete('/products', function(req, res) {
-	console.log(req.query.id);
+	// console.log(req.query.id);
 	db.run("DELETE FROM phones WHERE id=?" + req.query.id, function(err) {
 		if(err) {
 			return res.send(err.message).sendStatus(418);
-
 		}
 		return res.sendStatus(200);
 	});
@@ -81,8 +82,31 @@ app.use(bodyParser.json());
 
 app.post('/products', function(req, res) {
 	console.log(req.body);
-	res.sendStatus(201);
-	return res.json(req.body)
+	const item = req.body;
+	db.run(`INSERT INTO phones (brand, model, os, image, screensize)
+	VALUES (?, ?, ?, ?, ?)`,
+	[item['brand'], item['model'], item['os'], item['image'],  item['screensize']], function(err) {
+		if(err) {
+			return res.send(err.message).sendStatus(400);
+		}
+		return res.sendStatus(201);
+	});
+});
+
+app.put('/products/:id', function(req, res) {
+	// console.log(req.param.id);
+	const id = req.param.id;
+	const item = req.body;
+	db.run(`UPDATE phones
+                    SET brand=?, model=?, os=?, image=?,
+                    screensize=? WHERE id=?`,
+                    [item['brand'], item['model'], item['os'], item['image'], item['screensize'], item['id']], function(err) {
+						if(err) {
+							return res.send(err.message).sendStatus(500);
+						}
+						return res.sendStatus(200);
+					}
+	);
 });
 
 
