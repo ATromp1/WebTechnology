@@ -74,25 +74,12 @@ function appendPhone(element) {
 
 // Retrieve all phones from the database and add them to the table.
 function populateTable() {
-    $.ajax(
-        {
-            type: "GET",
-            url: "https://localhost:3000/products",
-            data: "{}",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            cache: false,
-            success: function (data) {
-                for (let i = 0; i < data.length; i++) {
-                    appendPhone(data[i]);
-                }
-                sortTableNoArgs();
-            },
-            error: function (msg) {
-
-                alert(msg.responseText);
-            }
-        });
+    $.getJSON("http://localhost:3000/products", function (data) {
+        for (let i = 0; i < data.length; i++) {
+            appendPhone(data[i]);
+        }
+        sortTableNoArgs();
+    });
 }
 
 // Retrieve latest added phone from the database and adds it to the the table. 

@@ -45,13 +45,14 @@ var app = express();
 
 
 app.get('/products', function(req, res) {
+	console.log("get request");
     // Example SQL statement to select the name of all products from a specific brand
     db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
 	
     	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
     	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
 
-    	// # Return db response as JSON
+		// # Return db response as JSON	
     	return res.json(rows)
     });
 });
@@ -66,6 +67,10 @@ app.post('/products', function(req, res) {
 	res.sendStatus(201);
 	return res.json(req.body)
 });
+
+app.all('*', function() {
+	res.header("Access-Control-Allow-Origin", "*");
+})
 
 // ###############################################################################
 // This should start the server, after the routes have been defined, at port 3000:
