@@ -133,14 +133,17 @@ $(document).ready(function () {
         addLastPhone();
     })
 
-    // Reset button
+    //Reset button
     $('#reset_id').click(function () {
-        $.get("http://localhost:3000/products")
-
-        $("#table1 thead").find('tr:gt(0)').remove();
-
-        populateTable();
-    })
+        $.ajax({
+            url: 'http://localhost:3000/reset',
+            type: 'DELETE',
+            success: function(result) {
+                $("#table1 thead").find('tr:gt(0)').remove();
+                populateTable();
+            }
+        });
+    })    
 
     // Sort table column and update icons on header click
     $('.sortable').on('click', function () {
