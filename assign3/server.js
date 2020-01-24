@@ -1,49 +1,18 @@
 // ###############################################################################
 // Web Technology at VU University Amsterdam
 // Assignment 3
-//
-// The assignment description is available on Canvas. 
-// Please read it carefully before you proceed.
-//
-// This is a template for you to quickly get started with Assignment 3.
-// Read through the code and try to understand it.
-//
-// Have you read the zyBook chapter on Node.js?
-// Have you looked at the documentation of sqlite?
-// https://www.sqlitetutorial.net/sqlite-nodejs/
-//
-// Once you are familiar with Node.js and the assignment, start implementing
-// an API according to your design by adding routes.
-
-
 // ###############################################################################
 //
 // Database setup:
-// First: Open sqlite database file, create if not exists already.
-// We are going to use the variable "db' to communicate to the database:
-// If you want to start with a clean sheet, delete the file 'phones.db'.
-// It will be automatically re-created and filled with one example item.
 
 const sqlite = require('sqlite3').verbose();
 let db = my_database('./phones.db');
 
-// ###############################################################################
-// The database should be OK by now. Let's setup the Web server so we can start
-// defining routes.
-//
-// First, create an express application `app`:
-
 var express = require("express");
 var app = express();
 
-// ###############################################################################
-// Routes
-// 
-// TODO: Add your routes here and remove the example routes once you know how
-//       everything works.
-// ###############################################################################
-
-
+var bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
 app.all("*", function(req, res, next) {
 	// Add Access-Control-Allow-Origin * to each header to allow cross domain requests
@@ -56,10 +25,9 @@ app.all("*", function(req, res, next) {
 app.get('/products', function(req, res) {
 	// Example SQL statement to select the name of all products from a specific brand
 	db.all("SELECT id, brand, model, os, image, screensize FROM phones", function(err, rows) {
-	
-    	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
-    	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
-
+		if(err) {
+			return res.send(err.message).sendStatus(400);
+		}
 		// # Return db response as JSON	
     	return res.json(rows)
     });
@@ -69,16 +37,11 @@ app.delete('/products', function(req, res) {
 	// console.log(req.query.id);
 	db.run("DELETE FROM phones WHERE id=?" + req.query.id, function(err) {
 		if(err) {
-			return res.send(err.message).sendStatus(418);
+			return res.send(err.message).sendStatus(400);
 		}
 		return res.sendStatus(200);
 	});
 });
-
-
-var bodyParser = require("body-parser");
-
-app.use(bodyParser.json());
 
 app.post('/products', function(req, res) {
 	console.log(req.body);
