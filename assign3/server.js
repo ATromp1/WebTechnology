@@ -33,7 +33,7 @@ app.get('/products', function(req, res) {
     });
 });
 
-app.delete('/products', function(req, res) {
+app.delete('/products/:id', function(req, res) {
 	// console.log(req.query.id);
 	db.run("DELETE FROM phones WHERE id=?" + req.query.id, function(err) {
 		if(err) {
@@ -42,6 +42,15 @@ app.delete('/products', function(req, res) {
 		return res.sendStatus(200);
 	});
 });
+
+app.delete('/reset', function(req, res) {
+	db.run("DELETE FROM phones", function(err) {
+		if(err) {
+			return res.send(err.message).sendStatus(400);
+		}
+		return res.sendStatus(200);
+	});
+})
 
 app.post('/products', function(req, res) {
 	console.log(req.body);
