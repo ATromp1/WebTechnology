@@ -11,10 +11,10 @@ The database contains JSON Data that can be fetched, posted, modified and delete
 There is currently no limit to the number of requests an user can send.
 
 ## Error Codes
-Error codes that can be expected:
-200 OK
-201 Created
-400 Bad Request 
+Error codes that can be expected:  
+200 OK  
+201 Created  
+400 Bad Request  
 500 Internal Server Error
 
 ---
