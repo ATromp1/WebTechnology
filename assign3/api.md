@@ -24,9 +24,24 @@ Error codes that can be expected:
 
     http://localhost:3000/products/?id
 Retrieves resources
+
 #### params
 #
-id
+id &nbsp; - &nbsp; The id of the product
+
+### Response Format
+On success, the HTTP status code in the response header is 200 OK and the response body contains a product object in JSON format. On error, the header status code is an error code and the response body contains an error object.
+
+---
+
+## GET http://localhost:3000/products
+
+
+    http://localhost:3000/products
+Retrieves all resources
+
+### Response Format
+On success, the HTTP status code in the response header is 200 OK and the response body contains an array of product objects in JSON format. On error, the header status code is an error code and the response body contains an error object.
 
 ---
 
@@ -50,27 +65,62 @@ Creates resources
     "screensize": 5.65
 }
 ```
+### Response Format
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object.
 
 ---
 
-## PUT http://localhost:3000/products/?id
+## PUT http://localhost:3000/products
 
-    http://localhost:3000/products/?id
+    http://localhost:3000/products
 Changes and/or replaces resources or collections
 
 #### params
 #
-id
+id &nbsp; - &nbsp; The id of the product
+
+#### Headers
+#
+*Content-type* &nbsp;&nbsp;&nbsp;&nbsp; application/json
+
+#### Body
+#
+```json
+{
+    "id" : 1,
+    "brand": "Samsung",
+    "model": "Galaxy Fold",
+    "os": "Android",
+    "image": "https://www.samsung.com/global/galaxy/galaxy-fold/specs/images/galaxy-fold_specs_design_cosmos_black.jpg",
+    "screensize": 7.3
+}
+```
+
+### Response Format
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object.
 
 ---
 
 ## DEL http://localhost:3000/products/?id
 
-    http://localhost:3000/
+    http://localhost:3000/products/?id
 Deletes resources
 
 #### params
 #
-id
+id &nbsp; - &nbsp; The id of the product
+
+### Response Format
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object.
+
+----
+
+## DEL http://localhost:3000/products
+
+    http://localhost:3000/products
+Deletes all resources
+
+### Response Format
+On success, the HTTP status code in the response header is 200 OK. On error, the header status code is an error code and the response body contains an error object.
 
 ----

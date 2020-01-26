@@ -136,7 +136,7 @@ $(document).ready(function () {
     //Reset button
     $('#reset_id').click(function () {
         $.ajax({
-            url: 'http://localhost:3000/reset',
+            url: 'http://localhost:3000/products',
             type: 'DELETE',
             success: function(result) {
                 $("#table1 thead").find('tr:gt(0)').remove();
