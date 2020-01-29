@@ -1,12 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Evaluation Document</title>
 </head>
+
 <body>
-    
+    <h1>Self-Evaluation Report</h1>
+    <h2>Date of Evaluation: 28/01/2020</h2>
+    <h2>Rico van Leeuwen & Alexander Tromp</h2>
+    <h2>Group 8 LabCS-1</h2>
+
+    <h3>Introduction</h3>
+    <p>Making it possible for people with disabilities to also enjoy the world wide web in all of it's glory.</p>
+
+    <h3>Accessibility highlights</h3>
+    <p>The accessibility highlights we deem the most important for our page are: being able to navigate the page
+        exclusively by keyboard (2.1.1), and to have information conveyed through presentation
+        to be programmically determined/available in text (1.3.1). This would greatly benefit people who cannot use the
+        mouse to still access the page, and allows people with limited eyesight to make use of a screenreader which
+        can interpret the page text.
+    </p>
+    <h3>Improvement plan</h3>
+    <table>
+        <tr>
+            <td>1</td>
+            <td>Problem</td>
+            <td>Improvement aim</td>
+            <td>Code modifications</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Images are to large when page is scaled down</td>
+            <td>Scale the image size with the page size</td>
+            <td>Changed css file: changed font size to be relative to viewport width.</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>Unnecessary form elements in printing style</td>
+            <td>Remove last element from table in printing style</td>
+            <td>Changed css file: added visibility: hidden to table tbody.</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>Header of table is too big when used on small device</td>
+            <td>Scale with size of page</td>
+            <td>Changed css file: changed font size to be relative to viewport width.</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>Pictures do not have a text alternative</td>
+            <td>Adding alt attributes to all img.</td>
+            <td>Changed script file: added alt=\"Image of phone\" to appendPhone function.</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>Some semantic elements could be added</td>
+            <td>Adding ARIA attributes to missing elements</td>
+            <td>Changed index.html: added role="..." to div elements.</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>Table cannot be sorted without mouse usage</td>
+            <td>Make it able to sort table with tab key</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <h3>Appendix A</h3>
+    <table>
+        <tr>
+            <td>1.1.1</td>
+            <td>All non-text content that is presented to the user has a text alternative that serves the equivalent
+                purpose.</td>
+            <td>Does not meet the requirement, because the pictures in the table do not have a alternative text.</td>
+        </tr>
+        <tr>
+            <td>1.3.1</td>
+            <td>Information, structure, and relationships conveyed through presentation can be programmatically
+                determined or are available in text.</td>
+            <td>Semantic markdown is used for almost everything, making programmatically determining the context of the
+                page possible so it can present this information to users in different modalities however, some ARIA
+                landmarks could be added to differentiate different regions of the page.</td>
+        </tr>
+        <tr>
+            <td>1.3.2</td>
+            <td>When the sequence in which content is presented affects its meaning, a correct reading sequence can be
+                programmatically determined.</td>
+            <td>Meets the requirement: since the visual presentation of the sections does not match the programmatically
+                determined order, but the meaning of the page does not depend on the order of the sections.</td>
+        </tr>
+        <tr>
+            <td>1.3.3</td>
+            <td>Instructions provided for understanding and operating content do not rely solely on sensory
+                characteristics of components such as shape, color, size, visual location, orientation, or sound.</td>
+            <td>Meets the requirement: since the page does not use any shapes or locations to convey information.</td>
+        </tr>
+        <tr>
+            <td>1.4.1</td>
+            <td>Color is not used as the only visual means of conveying information, indicating an action, prompting a
+                response, or distinguishing a visual element.</td>
+            <td>Meets the requirement: the page does not specifically use color to convey information.</td>
+        </tr>
+        <tr>
+            <td>1.4.2</td>
+            <td>If any audio on a Web page plays automatically for more than 3 seconds, either a mechanism is available
+                to pause or stop the audio, or a mechanism is available to control audio volume independently from the
+                overall system volume level.</td>
+            <td>Meets the requirement: No audio is used on the page.</td>
+        </tr>
+        <tr>
+            <td>2.1.1</td>
+            <td>All functionality of the content is operable through a keyboard interface without requiring specific
+                timings for individual keystrokes, except where the underlying function requires input that depends on
+                the path of the user's movement and not just the endpoints.</td>
+            <td>Meets the requirement: Everything on the page is operable via keyboard. Does not meet the requirement:
+                with the exception of sorting the table.</td>
+        </tr>
+        <tr>
+            <td>2.1.2</td>
+            <td>If keyboard focus can be moved to a component of the page using a keyboard interface, then focus can be
+                moved away from that component using only a keyboard interface, and, if it requires more than unmodified
+                arrow or tab keys or other standard exit methods, the user is advised of the method for moving focus
+                away.</td>
+            <td>Meets the requirement: Tab can be used to navigate the page, including the form used for the table,
+                resulting in no keyboard traps.</td>
+        </tr>
+        <tr>
+            <td>2.4.1</td>
+            <td>A mechanism is available to bypass blocks of content that are repeated on multiple Web pages.</td>
+            <td>Meets the requirement: Multiple webpages are not used.</td>
+        </tr>
+        <tr>
+            <td>2.4.2</td>
+            <td>Web pages have titles that describe topic or purpose.</td>
+            <td>Meets the requirement: Main pages has a title that describes the phone store website.</td>
+        </tr>
+        <tr>
+            <td>2.4.3</td>
+            <td>If a Web page can be navigated sequentially and the navigation sequences affect meaning or operation,
+                focusable components receive focus in an order that preserves meaning and operability.</td>
+            <td>Meets the requirement: Focus order is linear from left to right and top to bottom.</td>
+        </tr>
+        <tr>
+            <td>2.4.4</td>
+            <td>The purpose of each link can be determined from the link text alone or from the link text together with
+                its programmatically determined link context, except where the purpose of the link would be ambiguous to
+                users in general.</td>
+            <td>Meets the requirement: Purpose of each link is clear from the link text</td>
+        </tr>
+    </table>
+
+    <h3>Appendix B</h3>
+    <table>
+        <tr>
+            <th>Negative aspect that could be used to improve the usability or accessibility</th>
+            <th>Technical implementation that has no impact on usability or accessibility</th>
+            <th>Positive aspect that improves usability or accessibility</th>
+        </tr>
+
+        <tr>
+            <td>The image to be submitted in the form should not be a file upload. It should take a URL which links to
+                an image.
+                Even if I upload an image, enter details of the other fields and press submit. I get an error on the
+                redirected page.
+                "{"Error": "Missing field brand in dict_keys(['img_url', 'Brand', 'Model', 'OS', 'Screensize'])."}"
+                This could be a result of not using capitals in the names within the input tags of your form.</td>
+            <td>Screen and print styles are sufficiently different.</td>
+            <td>+2 for sorting numbers correctly.</td>
+        </tr>
+
+        <tr>
+            <td>Not all attributes present. Font-style missing.</td>
+            <td>Well commented and neat Javascript file.</td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Screen and print styles are sufficiently different. However, the images should be made smaller.
+                The images are very large which distorts the layout of the table. Also, it is not necessary to have the
+                elements of your form present in the printing style.
+                This should be removed.</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>Good responsive design. Works good on tablet screen size. The headers of the tables could be made
+                smaller, current size causes the user to miss information.</td>
+            <td></td>
+            <td></td>
+        </tr>
+
+        <tr>
+            <td>When switching to mobile phone size the table becomes unreadable. But it was only necessary to make it
+                work on at least one mobile device.</td>
+        </tr>
+    </table>
 </body>
+
 </html>

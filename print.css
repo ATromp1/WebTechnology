@@ -20,3 +20,9 @@ p {
     orphans: 3;
     widows: 3;
 }
+
+#table1 tbody {
+    visibility: hidden;
+    
+}
+

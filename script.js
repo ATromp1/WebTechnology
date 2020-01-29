@@ -64,7 +64,7 @@ function sortTable(n, dir) {
 // Generate html from phone data and add it to the end of the table.
 function appendPhone(element) {
     $("#table1 thead").append("<tr>"
-        + "<td>" + "<img src=" + element.image + "></td>"
+        + "<td>" + "<img src=" + element.image + " alt=\"Image of phone\"></td>"
         + "<td>" + element.brand + "</td>"
         + "<td>" + element.model + "</td>"
         + "<td>" + element.os + "</td>"
