@@ -143,8 +143,9 @@ a:active {
 
 #phone_list img {
     vertical-align: bottom;
-    width:108px;
-    height:168px;
+    width: 100%;
+    max-width: 10vh;
+    height: auto;
 }
 
 #phone_list figure {
@@ -157,7 +158,8 @@ a:active {
     display: grid;
     border-collapse: collapse;
     max-width: 100% !important;
-    grid-template-columns: minmax(132px, 1fr) repeat(4, 1fr);
+    /* grid-template-columns: minmax(132px, 1fr) repeat(4, 1fr); */
+    grid-template-columns: repeat(5, 1fr);
     grid-template-areas: 
         "caption caption caption caption caption"
 }
@@ -238,6 +240,9 @@ th.sortable.desc::after {
 th.sortable:hover::after {
     color: white;
 }
+th.sortable:focus::after {
+    color: white;
+}
 
 /****************************************************************************
 5.0 - Footer */
@@ -267,5 +272,16 @@ th.sortable:hover::after {
     #main_body {
         grid-template-columns: unset;
         grid-template-rows: autofill auto;
+        width: 100%;
+    }
+
+    #table1 {
+        font-size: 2vw !important;
+    }
+    caption {
+        font-size: 4vw;
+    }
+    th {
+        font-size: 3vw;
     }
 }
