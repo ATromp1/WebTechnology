@@ -109,41 +109,33 @@ $(document).ready(function () {
 
     // Submit form data to database
     $('#phone_form').submit(function (event) {
-        var formElements = document.getElementById("phone_form").elements;
-        let entry = {};
+        const form = new FormData(document.getElementById('phone_form'));
 
-        event.preventDefault();
-
-        // Format data into an array
-        for (let i = 0; i < formElements.length; i++) {
-            const element = formElements[i];
-
-            if (element.nodeName === "INPUT") {
-                entry[element.name] = element.value;
-            }
+        fetch('http://localhost:3000/products', {
+            method: 'POST',
+            body: form
         }
-        console.log(JSON.stringify(entry));
-
-        // Send input to database
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://localhost:3000/products', true);
-        xhr.setRequestHeader("Content-Type", "application/json")
-        xhr.send(JSON.stringify(entry));
-        $("#phone_form")[0].reset();        // Clearing form entries
-        addLastPhone();
+            .then((response) => {
+                if (response.ok) {
+                    $("#phone_form")[0].reset();        // Clear form entries
+                    addLastPhone();
+                }
+            })
+        );
     })
 
     //Reset button
     $('#reset_id').click(function () {
-        $.ajax({
-            url: 'http://localhost:3000/products',
-            type: 'DELETE',
-            success: function(result) {
-                $("#table1 thead").find('tr:gt(0)').remove();
-                populateTable();
-            }
-        });
-    })    
+        fetch('http://localhost:3000/products', {
+            method: 'DELETE'
+        })
+            .then((response) => {
+                if (response.ok) {
+                    $("#table1 thead").find('tr:gt(0)').remove();
+                    populateTable();
+                }
+            });
+    })
 
     // Sort table column and update icons on header click
     $('.sortable').on('click', function () {
@@ -159,6 +151,12 @@ $(document).ready(function () {
         else {
             th.addClass('asc');
             sortTable(th.index(), 'asc');
+        }
+    })
+
+    $('.sortable').on('keyup', function () {
+        if (event.which == 13) {
+            $(this).click();
         }
     })
 
